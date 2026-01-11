@@ -4,80 +4,77 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reset Password</title>
-   @php
+
+  @php
     $getHeaderSetting = App\Models\SettingModel::getSingle();
   @endphp
+
+  <!-- favicon (keeps using whatever your model returns) -->
   <link href="{{ $getHeaderSetting->getFevicon() }}" rel="icon" type="image/jpg" />
 
-  <!-- Google Font: Source Sans Pro -->
+  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ url('public/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{ url('public/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ url('public/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="" class="h1"><b>Reset Password</b></a>
+      <a href="#" class="h1"><b>Reset Password</b></a>
     </div>
     <div class="card-body">
-     
       @include('_message')
-      
-      <form action="" method="post">
+
+      <!-- set action to your reset route; adjust if you expect a token or different URL -->
+      <form action="{{ url('reset-password') }}" method="post">
         {{ csrf_field() }}
+
         <div class="input-group mb-3">
-          <input type="password" class="form-control" required  name="password" placeholder="Password">
+          <input type="password" class="form-control" required name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
 
-         <div class="input-group mb-3">
-          <input type="password" class="form-control" required  name="cpassword" placeholder="Confrim Password">
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" required name="cpassword" placeholder="Confirm Password">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-        
+
         <div class="row">
-          
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Reset</button>
           </div>
-          
         </div>
       </form>
-
-    
-      <!-- /.social-auth-links -->
 
       <p class="mb-1">
         <br />
         <a href="{{ url('') }}">Login</a>
       </p>
-    
     </div>
-    <!-- /.card-body -->
   </div>
-  <!-- /.card -->
 </div>
-<!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="{{ url('public/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ url('public/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script type="{{ url('public/dist/js/adminlte.min.js') }}"></script>
- </body>
+<script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+</body>
 </html>
