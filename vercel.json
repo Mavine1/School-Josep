@@ -8,16 +8,20 @@
     ],
     "routes": [
         {
-            "src": "/(.*\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot))",
-            "dest": "/public/$1"
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
         },
         {
-            "src": "/(plugins|dist|build|css|js|images|fonts)/(.*)",
+            "src": "/(css|js|images|fonts)/(.*)",
             "dest": "/public/$1/$2"
         },
         {
-            "src": "/(favicon\.ico|robots\.txt)",
-            "dest": "/public/$1"
+            "src": "/plugins/(.*)",
+            "dest": "/public/plugins/$1"
+        },
+        {
+            "src": "/dist/(.*)",
+            "dest": "/public/dist/$1"
         },
         {
             "src": "/(.*)",
@@ -35,7 +39,6 @@
         "VIEW_COMPILED_PATH": "/tmp",
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie",
-        "ASSET_URL": "https://your-app.vercel.app"
+        "SESSION_DRIVER": "cookie"
     }
 }
