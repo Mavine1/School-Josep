@@ -3,7 +3,10 @@
     "builds": [
         {
             "src": "api/index.php",
-            "use": "vercel-php@0.7.2"
+            "use": "vercel-php@0.7.2",
+            "config": {
+                "excludeFiles": "{tests/**,storage/logs/**,storage/framework/cache/**,node_modules/**}"
+            }
         }
     ],
     "rewrites": [
@@ -38,5 +41,9 @@
                 }
             ]
         }
-    ]
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false"
+    }
 }
